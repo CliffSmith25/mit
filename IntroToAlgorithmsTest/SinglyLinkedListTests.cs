@@ -59,4 +59,27 @@ public class SinglyLinkedListTests
         singlyLinkedList.DeleteAt(3);
         Assert.That(singlyLinkedList.GetAt(3), Is.EqualTo(6), "First element insert should work correctly");
     }
+
+    [Test]
+    public void ReverseShouldReverseList()
+    {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.Build([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        list.Reverse(2, 4);
+
+        SinglyLinkedList testList = new SinglyLinkedList();
+        testList.Build([1, 2, 6, 5, 4, 3, 7, 8, 9]);
+        Assert.That(list.GetAt(4), Is.EqualTo(testList.GetAt(4)), "Reversing should reverse the list correctly");
+    }
+
+    [Test]
+    public void MoveShouldMoveItems()
+    {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.Build([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+        list.Move(2, 4, 8);
+
+        Assert.That(list.GetAt(5), Is.EqualTo(4), "Moving should move items correctly");
+    }
 }

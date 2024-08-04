@@ -89,7 +89,46 @@ public class SinglyLinkedList
         }
         _length--;
         return deletedElement;
+    }    
+    
+    public void Reverse(int index, int k)
+    {
+        List<ListElement> elements = [];
+
+        for (int i = 0; i < k; i++)
+        {
+            elements.Add(DeleteAt(index));
+        }
+
+        var arr = elements.ToArray();
+        for (int i = 0; i < k; i++)
+        {
+            InsertAt(index, elements[i].Value);
+        }
     }
+
+    public void Move(int index, int k, int j)
+    {
+        List<ListElement> elements = [];
+
+        for (int i = 0; i < k; i ++)
+        {
+            elements.Add(DeleteAt(index));
+        }
+
+        int newIndex = j;
+        if (j > index)
+        {
+            newIndex = j - k;
+        }
+
+        var arr = elements.ToArray();
+        for (int i = k - 1; i >= 0; i--)
+        {
+            InsertAt(newIndex, elements[i].Value);
+        }
+    }
+
 
     public int? GetAt(int i)
     {
