@@ -3,7 +3,9 @@
 public class SinglyLinkedList
 {
     private ListElement _firstElement;
+
     private int _length = 0;
+
     public void Build(int[] list)
     {
         ListElement prevElement = new();
@@ -22,7 +24,7 @@ public class SinglyLinkedList
 
     public int GetLength()
     {
-        return _length; 
+        return _length;
     }
 
     public int InsertAt(int index, int value)
@@ -58,7 +60,6 @@ public class SinglyLinkedList
 
         _length++;
         return _length;
-
     }
 
     public ListElement? DeleteAt(int index)
@@ -89,8 +90,8 @@ public class SinglyLinkedList
         }
         _length--;
         return deletedElement;
-    }    
-    
+    }
+
     public void Reverse(int index, int k)
     {
         List<ListElement> elements = [];
@@ -111,7 +112,7 @@ public class SinglyLinkedList
     {
         List<ListElement> elements = [];
 
-        for (int i = 0; i < k; i ++)
+        for (int i = 0; i < k; i++)
         {
             elements.Add(DeleteAt(index));
         }
@@ -129,7 +130,6 @@ public class SinglyLinkedList
         }
     }
 
-
     public int? GetAt(int i)
     {
         if (i > _length - 1)
@@ -139,7 +139,7 @@ public class SinglyLinkedList
 
         int pos = 0;
         var curElement = _firstElement;
-        while (pos < i) 
+        while (pos < i)
         {
             curElement = curElement.NextElement;
             pos++;
@@ -152,5 +152,6 @@ public class SinglyLinkedList
 public class ListElement
 {
     public int Value { get; set; }
-    public ListElement NextElement { get; set; }
+    public ListElement? NextElement { get; set; }
+    public ListElement? PrevElement { get; set; }
 }
